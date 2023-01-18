@@ -4,7 +4,10 @@
   "dependencies": {
     "@hotwired/stimulus": "^3.2.1",
     "@hotwired/turbo-rails": "^7.2.4",
+    "@material-ui/core": "^4.12.4",
+    "@material-ui/icons": "^4.11.3",
     "@popperjs/core": "^2.11.6",
+    "axios": "^1.2.2",
     "bootstrap": "^5.2.3",
     "bootstrap-icons": "^1.10.3",
     "esbuild": "^0.17.0",
@@ -12,7 +15,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.6.2",
-    "sass": "^1.57.1"
+    "sass": "^1.57.1",
+    "styled-components": "^5.3.6"
   },
   "scripts": {
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=assets --loader:.js=jsx",

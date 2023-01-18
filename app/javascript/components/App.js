@@ -1,9 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-
+import Tweets from './Tweets/Tweets'
 
 
 const App = () => {
-  return <h1>App</h1>
+  return(
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<Tweets/>} />
+      </Routes>
+    </Router>
+  )
 }
 export default App
