@@ -11,11 +11,11 @@ class Api::V1::TweetsController < ApplicationController
   end
 
   def new
-    tweet = Tweet.new
+    tweet = current_user.tweets.new
   end
 
   def create
-    tweet = Tweet.new(tweet_params)
+    tweet = current_user.tweets.new(tweet_params)
     if tweet.save
         render json: TweetSerializer.new(tweet).serializable_hash, status: :created
     else
