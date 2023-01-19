@@ -59,7 +59,7 @@ const TweetCreate = (props) => {
             <input className="form-control" type="text" name="body" placeholder = "What's happening" ref={ref} valeu={tweet.body} onChange={handleChange} /> 
           </div>
           <Button type="submit" className="btn btn-outline-primary mt-3">
-            Create Recipe
+            Create Tweet
           </Button>
         </form>
       </Card>
