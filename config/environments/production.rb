@@ -63,8 +63,6 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "TwitterApp_production"
 
   config.action_mailer.perform_caching = false
-  
-  config.action_mailer.perform_deliveries = true
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
@@ -92,13 +90,14 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  config.action_mailer.default_url_options = { host: "cp-lyuba.herokuapp.com" }
   
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :user_name => ENV["MAIL_USERNAME"],
     :password => ENV["MAIL_PASSWORD"],
     :address => 'smtp.mailtrap.io',
-    :domain => 'smtp.mailtrap.io',
+    :domain => 'heroku.com',
     :port => '2525',
     :authentication => :cram_md5
   }

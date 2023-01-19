@@ -94,4 +94,4 @@ yarn-debug.log*
 # Ignore pidfiles, but keep the directory.
 /tmp/pids/*
 !/tmp/pids/
-!/tmp/pids/.keep
+!/tmp/pids/.keep.env
