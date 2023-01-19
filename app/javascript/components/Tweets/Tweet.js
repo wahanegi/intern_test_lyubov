@@ -12,13 +12,15 @@ const Card = styled.div`
 `
 const Cardtext = styled.div`
   font-size: medium;
+  padding: 20px;
+  margin-bottom: 0;
 `
 const Tweet = ({ id, body}) => {
   console.log(id)
   return (
-    <Card>
+    <div className="card">
       <Cardtext>{body}</Cardtext>
-    </Card>
+    </div>
    );
 }
 
