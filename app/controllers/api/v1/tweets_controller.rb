@@ -1,13 +1,13 @@
 class Api::V1::TweetsController < ApplicationController
-  protect_from_forgery with: :null_session
+  before_action :authenticate_user!, except: [:index]
   before_action :set_tweet, only: [:show, :edit, :update, :destroy]
   def index
     @tweets = Tweet.all
-    render json: TweetSerializer.new(@tweets).serializable_hash
+    render json: TweetSerializer.new(@tweets).serializable_hash.to_json
   end
 
   def show
-    render json: TweetSerializer.new(@tweet).serializable_hash
+    render json: TweetSerializer.new(@tweet).serializable_hash.to_json
   end
 
   def new
@@ -17,7 +17,7 @@ class Api::V1::TweetsController < ApplicationController
   def create
     @tweet = current_user.tweets.new(tweet_params)
     if @tweet.save
-        render json: TweetSerializer.new(@tweet).serializable_hash, status: :created
+        render json: TweetSerializer.new(@tweet).serializable_hash.to_json, status: :created
     else
         render json: {error: @tweet.errors }, status: 422
     end
@@ -27,7 +27,7 @@ class Api::V1::TweetsController < ApplicationController
 
   def update
     if @tweet.update(tweet_params)
-        render json: TweetSerializer.new(@tweet).serializable_hash
+        render json: TweetSerializer.new(@tweet).serializable_hash.to_json
     else
         render json: {error: @tweet.errors }, status: 422
     end
