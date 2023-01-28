@@ -10,9 +10,7 @@ const CardBody = styled.div`
 const Header = (props) => {
   
     const grid = props.tweets.map( (tweet, index) => {
-        const { body } = tweet.attributes
-        const { user } = tweet.attributes
-        const { created_at } = tweet.attributes
+        const { body, user, created_at } = tweet.attributes
         console.log("body", body)
         console.log("id", tweet.id)
         console.log("tweet", tweet)
@@ -20,12 +18,9 @@ const Header = (props) => {
         console.log("created_at", created_at)
     
         return (
-          <Tweet 
+          <Tweet {...tweet.attributes}
             key={index}
-            body={body}
             id={tweet.id}
-            user={user}
-            created_at={created_at}
           />
         )
       })

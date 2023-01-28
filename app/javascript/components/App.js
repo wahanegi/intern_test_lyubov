@@ -3,11 +3,11 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Tweets from './Tweets/Tweets'
 
 
-const App = () => {
+const App = ({ cable }) => {
   return(
     <Router>
       <Routes>
-        <Route exact path="/" element={<Tweets/>} />
+        <Route exact path="/" element={<Tweets cable={cable} />} />
       </Routes>
     </Router>
   )
