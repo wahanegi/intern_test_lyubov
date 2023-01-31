@@ -9,7 +9,7 @@ const Button = styled.button`
   border-radius: 30px;
   margin-left: 75%;
 `
-const TweetCreate = (props) => {   
+const TweetCreate = (props, {cable}) => {   
   const [tweet, setTweet] = useState({}) 
   const [errormessage, setErrormessage] = useState(null) 
   const [successmessage, setSuccessmessage] = useState(null) 

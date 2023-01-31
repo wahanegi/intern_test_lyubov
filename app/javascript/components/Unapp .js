@@ -1,15 +1,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Tweets from './Tweets/Tweets'
+import Untweets from './Tweets/Untweets'
 
 
-const App = ({ cable }) => {
+const Unapp = () => {
   return(
     <Router>
       <Routes>
-        <Route exact path="/" element={<Tweets cable={cable} />} />
+        <Route exact path="/" element={<Untweets/>} />
       </Routes>
     </Router>
   )
 }
-export default App
+export default Unapp

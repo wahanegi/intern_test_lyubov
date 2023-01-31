@@ -3,7 +3,7 @@ class Api::V1::TweetsController < ApplicationController
   before_action :set_tweet, only: [:show, :edit, :update, :destroy]
   def index
     @tweets = Tweet.all
-    render json: TweetSerializer.new(@tweets).serializable_hash.to_json
+    render json: TweetSerializer.new(@tweets).serializable_hash.to_json    
   end
 
   def show
@@ -17,6 +17,7 @@ class Api::V1::TweetsController < ApplicationController
   def create
     @tweet = current_user.tweets.new(tweet_params)
     if @tweet.save
+        ActionCable.server.broadcast "tweet_channel", { data: @tweet }
         render json: TweetSerializer.new(@tweet).serializable_hash.to_json, status: :created
     else
         render json: {error: @tweet.errors }, status: 422
